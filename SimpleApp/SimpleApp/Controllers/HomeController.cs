@@ -12,7 +12,7 @@ namespace SimpleApp.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return View(HttpContext.Application["events"]);
         }
 
         [HttpPost]
@@ -24,7 +24,7 @@ namespace SimpleApp.Controllers
                 Votes.RecordVote(color);
             }
             ViewBag.SelectedColor = Session["color"] = color;
-            return View();
+            return View(HttpContext.Application["events"]);
         }
     }
 }
